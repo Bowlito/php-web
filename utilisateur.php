@@ -1,19 +1,19 @@
 <?php
 
 $username = "Doe";
-if ($_GET['username'] != "") {
-    $username = $_GET['username'];
+if ($_POST['username'] != "") {
+    $username = $_POST['username'];
 }
 
 
-if ($_GET['genre'] == 'femme'){
+if ($_POST['genre'] == 'femme'){
     $genre = "Madame";
 } else {
     $genre = "Monsieur";
 }
 
-$age = $_GET['age'];
-$ville = $_GET['ville'];
+$age = $_POST['age'];
+$ville = $_POST['ville'];
 ?>
 
 <!DOCTYPE html>
