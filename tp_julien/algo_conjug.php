@@ -1,28 +1,32 @@
 <?php
 
+$present = ["e", "es", "e", "ons", "ez", "ent"];
+$imparfait = ["ais", "ais", "ait", "ions", "iez", "aient"];
+$futur = ["ai", "as", "a", "ons", "ez", "ont"];
+$pronoms = ["Je", "Tu", "Il/Elle", "Nous", "Vous", "Ils"];
 
-$present = $_REQUEST['present'];
-$verbe = "";
+$verbe = "chercher";
+$temps = "futur";
 
+$racine = substr($verbe, 0, strlen($verbe) - 2);
 
-$racine = "";
-$terminaisons_p = ["e", "es", "e", "ons", "ez", "ent"];
-$pronoms = ["Je ", "Tu ", "Il / Elle ", "Nous ", "Vous ", "Ils / Elles "];
+echo $racine;
 
-$conjug_p = [];
+git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
 
-if ($_REQUEST['verbe'] != "" and isset($_REQUEST['present'])) {
-    for ($i = 0; $i < strlen($verbe) - 2; $i++) {
-        $racine .= $verbe[$i];
+if ($temps == "present") {
+
+    foreach ($present as $index => $end) {
+
+        echo "\n" . "$pronoms[$index]" . " $racine" . "$end";
     }
-
-    for ($j = 0; $j < count($pronoms); $j++) {
-        $conjug_p[] .=  ($pronoms[$j] . $racine . $terminaisons_p[$j]);
+} else if ($temps == "imparfait") {
+    foreach ($imparfait as $index => $end) {
+        echo "\n" . "$pronoms[$index]" . " $racine" . "$end";
     }
-
-}
-
-foreach ($conjug_p as $done) {
-    $done = $_REQUEST['conj'];
-    echo  $done;
+} else {
+    foreach ($futur as $index => $end) {
+        echo "\n" . "$pronoms[$index]" . " $verbe" . "$end";
+    }
 }
