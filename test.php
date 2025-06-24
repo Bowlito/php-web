@@ -2,6 +2,12 @@
 //Démarrer la session
 
 session_start();
+
+if ($_SERVER['HTTP_REFERER'] == 'http://localhost/php-web/test.php'){
+session_unset();
+session_destroy();
+}
+
 $nom_c = "";
 $nom_s = "";
 if (isset($_COOKIE['nom'])){
@@ -10,6 +16,8 @@ if (isset($_COOKIE['nom'])){
 if (isset($_SESSION['nom'])){
     $nom_s = $_SESSION['nom'];
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -29,7 +37,7 @@ if (isset($_SESSION['nom'])){
     <p>Nom : <?php echo $nom_s ?></p>
     <p>Nom : <?= $nom_s ?></p>
     <p>
-        <a href="vider_session.php">Vider la session</a>
+        <a href="test.php">Vider la session</a>
     </p>
 </body>
 
