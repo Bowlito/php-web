@@ -33,20 +33,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Document</title>
 </head>
 
-<body>
-    <form method="post" class="d-flex flex-column col-6 p-2 align-items-center">
+<body class="d-flex mt-4">
+    <div class="col-4"></div>
+    <form method="post" class="d-flex flex-column col-4 p-2 align-items-center border border-warning ">
         <div class="mb-3">
             <label for="verbe" class="form-label">Indiquez un verbe du 1er groupe</label>
             <input type="text" class="form-control" placeholder="votre verbe" name="verbe">
         </div>
-        <select class="form-select p-2" name="temps">
-            <option selected disabled>Temps</option>
-            <option value="present">Présent</option>
-            <option value="futur">Futur</option>
-            <option value="imparfait">Imparfait</option>
-        </select>
+        <div class="mb-3">
+            <select class="form-select" name="temps">
+                <option selected disabled>Temps</option>
+                <option value="present">Présent</option>
+                <option value="futur">Futur</option>
+                <option value="imparfait">Imparfait</option>
+            </select>
+        </div>
         <button type=submit class="btn btn-warning p-2">Conjuguer</button>
-        <ul>
+        <ul class="mt-4">
             <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if ($temps == "present") {
@@ -68,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ?>
         </ul>
     </form>
+    <div class="col-4"></div>
 </body>
 
 </html>
