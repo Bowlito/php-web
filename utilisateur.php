@@ -1,12 +1,15 @@
 <?php
+//Démarrer la session
 
-$username = "Doe";
+session_start();
+
+$username = "";
 if ($_REQUEST['username'] != "") {
     $username = $_REQUEST['username'];
 }
 
 
-if (isset($_REQUEST['genre']) && $_REQUEST['genre'] == 'femme'){
+if (isset($_REQUEST['genre']) && $_REQUEST['genre'] == 'femme') {
     $genre = "Madame";
 } else {
     $genre = "Monsieur";
@@ -16,10 +19,16 @@ $age = $_REQUEST['age'];
 $ville = $_REQUEST['ville'];
 
 setcookie("nom", $username);
+
+//ajouter des données dans la session
+
+$_SESSION['nom'] = $username;
+
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +43,7 @@ setcookie("nom", $username);
         <?php
         echo "$genre $username, vous avez $age ans et êtes de $ville";
         ?>
-        <a href="test.php">Consulter les cookies</a>
+        <a href="test.php">Consulter les cookies et les sessions</a>
     </p>
 
 </body>
