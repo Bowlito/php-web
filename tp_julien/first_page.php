@@ -33,45 +33,55 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Document</title>
 </head>
 
-<body class="d-flex mt-4">
-    <div class="col-4"></div>
-    <form method="post" class="d-flex flex-column col-4 p-2 align-items-center border border-warning ">
-        <div class="mb-3">
-            <label for="verbe" class="form-label">Indiquez un verbe du 1er groupe</label>
-            <input type="text" class="form-control" placeholder="votre verbe" name="verbe">
-        </div>
-        <div class="mb-3">
-            <select class="form-select" name="temps">
-                <option selected disabled>Temps</option>
-                <option value="present">Présent</option>
-                <option value="futur">Futur</option>
-                <option value="imparfait">Imparfait</option>
-            </select>
-        </div>
-        <button type=submit class="btn btn-warning p-2">Conjuguer</button>
-        <ul class="mt-4">
-            <?php
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                if ($temps == "present") {
+<body class="row justify-content-around">
+    <div class="d-flex justify-content-around">
+        <?php
+        include "./_home.php"
+        ?>
+    </div>
+    <div class="d-flex">
 
-                    foreach ($present as $index => $end) {
+        <div class="col-4"></div>
+        <form method="post" class="d-flex flex-column col-4 p-2 align-items-center border border-warning ">
+            <div class="mb-3">
+                <label for="verbe" class="form-label">Indiquez un verbe du 1er groupe</label>
+                <input type="text" class="form-control" placeholder="votre verbe" name="verbe">
+            </div>
+            <div class="mb-3">
+                <select class="form-select" name="temps">
+                    <option selected disabled>Temps</option>
+                    <option value="present">Présent</option>
+                    <option value="futur">Futur</option>
+                    <option value="imparfait">Imparfait</option>
+                </select>
+            </div>
+            <button type=submit class="btn btn-warning p-2">Conjuguer</button>
+            <ul class="mt-4">
+                <?php
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    if ($temps == "present") {
 
-                        echo "<li>" . $pronoms[$index] . " " . $racine . $end . "</li>";
-                    }
-                } else if ($temps == "imparfait") {
-                    foreach ($imparfait as $index => $end) {
-                        echo "<li>" . $pronoms[$index] . " " . $racine . $end . "</li>";
-                    }
-                } else {
-                    foreach ($futur as $index => $end) {
-                        echo "<li>" . $pronoms[$index] . " " . $verbe . $end . "</li>";
+                        foreach ($present as $index => $end) {
+
+                            echo "<li>" . $pronoms[$index] . " " . $racine . $end . "</li>";
+                        }
+                    } else if ($temps == "imparfait") {
+                        foreach ($imparfait as $index => $end) {
+                            echo "<li>" . $pronoms[$index] . " " . $racine . $end . "</li>";
+                        }
+                    } else {
+                        foreach ($futur as $index => $end) {
+                            echo "<li>" . $pronoms[$index] . " " . $verbe . $end . "</li>";
+                        }
                     }
                 }
-            }
-            ?>
-        </ul>
-    </form>
-    <div class="col-4"></div>
+                ?>
+            </ul>
+        </form>
+        <div class="col-4"></div>
+    </div>
+
+
 </body>
 
 </html>
