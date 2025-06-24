@@ -40,11 +40,16 @@ $_SESSION['nom'] = $username;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php
+    include "./_dependances.php"
+    ?>
     <title>Gestion d'utilisateur</title>
 </head>
 
 <body>
-
+    <?php
+        include "./_menu.php"
+    ?>
     <h1>Gestion d'utilisateur</h1>
     <p>
         Bonjour
