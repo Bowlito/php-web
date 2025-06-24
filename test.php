@@ -28,6 +28,9 @@ if (isset($_SESSION['nom'])){
     <h2>Sessions</h2>
     <p>Nom : <?php echo $nom_s ?></p>
     <p>Nom : <?= $nom_s ?></p>
+    <p>
+        <a href="vider_session.php">Vider la session</a>
+    </p>
 </body>
 
 </html>
