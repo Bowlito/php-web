@@ -12,9 +12,6 @@ $racine = substr($verbe, 0, strlen($verbe) - 2);
 
 echo $racine;
 
-git config --global user.email "you@example.com"
-  git config --global user.name "Your Name"
-
 if ($temps == "present") {
 
     foreach ($present as $index => $end) {
